@@ -1,1 +1,1 @@
-document.querySelector('body').innerHTML = '';
+
