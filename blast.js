@@ -1,34 +1,59 @@
-function renderLockScreen(customMessage, contactInfo) {
-    document.title = "Site Temporarily Unavailable";
+(function () {
+  document.querySelector('body').innerHTML = `
+  
+     
+      <style>
+        *{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+        }
 
-    document.body.innerHTML = `
-      <div style="
-        min-height:100vh;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-        background:#0f0f10;
-        color:#f5f5f5;
-        text-align:center;
-        padding:2rem;
-        box-sizing:border-box;
-      ">
-        <div style="max-width:480px;">
-          <h1 style="font-size:1.5rem;font-weight:600;margin-bottom:0.75rem;">
-            Site Temporarily Unavailable
-          </h1>
-          <p style="font-size:1rem;line-height:1.6;color:#c9c9c9;margin-bottom:1.5rem;">
-            ${customMessage || "This site is currently paused pending an outstanding invoice."}
-          </p>
-          <p style="font-size:0.95rem;color:#9a9a9a;">
-            ${contactInfo || "Please contact your developer to restore access."}
-          </p>
-        </div>
+        body{
+          font-family:Arial,Helvetica,sans-serif;
+          background:#111827;
+          color:#fff;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          min-height:100vh;
+          text-align:center;
+          padding:20px;
+        }
+
+        .notice{
+          max-width:700px;
+        }
+
+        .icon{
+          font-size:120px;
+          line-height:1;
+          margin-bottom:20px;
+        }
+
+        h1{
+          font-size:42px;
+          color:#ff4d4f;
+          margin-bottom:20px;
+        }
+
+        p{
+          font-size:20px;
+          line-height:1.7;
+          color:#d1d5db;
+        }
+      </style>
+    
+      <div class="notice">
+        <div class="icon">⚠️</div>
+
+        <h1>Website Temporarily Unavailable</h1>
+
+        <p>
+          Payments for the development work are currently pending.<br><br>
+          Please contact your developer to restore access to this website.
+        </p>
       </div>
-    `;
-
-    // Stop any other scripts/animations from re-rendering content underneath
-    window.stop && window.stop();
-  }
+   
+  `;
 })();
